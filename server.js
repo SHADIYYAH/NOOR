@@ -9,7 +9,7 @@ const userRoute = require("./routes/user");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Choose the appropriate DB_URI based on the environment (development or production)
+// Choosing the appropriate DB_URI based on the environment (development or production)
 const DB_URI =
   process.env.NODE_ENV === "production"
     ? process.env.DB_URI_PRODUCTION
@@ -32,7 +32,7 @@ mongoose
     console.log("Connection to MongoDB has been established successfully 🙌.");
 
     // Start the server after the database connection is successful
-    app.listen(PORT, () => {
+    app.listen(PORT, "0.0.0.0", () => {
       console.log(`Server is listening on http://localhost:${PORT}`);
       displayRoutes(app);
     });
